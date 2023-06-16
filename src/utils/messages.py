@@ -3,11 +3,21 @@ from src.client.ucommands import get_username, get_pfp
 
 
 # Simple message embed
-async def simple_embed(title, message_content):
+async def simple_embed(title, message_content, clr=discord.Color.blue()):
   # Title and description
-  embed = discord.Embed(title=title,
-                        description=message_content,
-                        color=discord.Color.blue())
+  embed = discord.Embed(title=title, description=message_content, color=clr)
+
+  # Set the footer of the embed with the avatar URL
+  embed.set_footer(text=f"by {await get_username(444295171434217473)}",
+                   icon_url=await get_pfp(444295171434217473))
+
+  return embed
+
+
+async def rate_limit(remaining):
+  # Title and description
+  message_content = f"Please wait {remaining:.1f} more seconds before using this command again."
+  embed = discord.Embed(title="Error", description=message_content, color=discord.Color.red())
 
   # Set the footer of the embed with the avatar URL
   embed.set_footer(text=f"by {await get_username(444295171434217473)}",
@@ -19,7 +29,11 @@ async def simple_embed(title, message_content):
 # Unsuccessful message embed
 async def unsuccessful(ign, username):
   # Title and description
-  msg = "The player `{}` has not linked their Discord account to their Hypixel account.\n"
+  msg = ""
+  if not ign:
+    msg += "You have not linked their Discord account to your Hypixel account.\n"
+  else:
+    msg += "The player `{}` has not linked their Discord account to their Hypixel account.\n"
   msg += "Join Hypixel and follow these steps to set your Discord link:"
   embed = discord.Embed(title="Verification Required",
                         description=msg.format(ign),

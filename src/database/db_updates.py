@@ -1,3 +1,4 @@
+import os
 from replit import db
 from src.client.client_setup import client
 
@@ -21,7 +22,8 @@ def get_data(user_id):
 # Saves database into a file where contents can be seen
 def db_save():
   data = dict(db)
-  with open('db_contents.txt', 'w') as file:
+  file_path = os.path.join('src', 'database', 'db_contents.txt')
+  with open(file_path, 'w') as file:
     msg = ""
     for key, value in data.items():
       msg += str(key) + " (" + str(client.get_user(int(key))) + "):\n"

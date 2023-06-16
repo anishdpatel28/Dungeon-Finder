@@ -104,7 +104,7 @@ def get_profile_data(name, user):
 def upd_assign(user):
   try:
     data = get_data(user.id)
-    assign(data["username"], user)
+    get_profile_data(data["username"], user)
     return data
   except:
     return {}
