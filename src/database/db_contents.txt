@@ -1,0 +1,23 @@
+721388754228740097 (rohnaldboo_1221):
+    successful:         	True
+    uuid:               	adbaf1c960c247d08ccc6a7fa258aeb3
+    cata:               	16
+    secrets:            	226
+    combat:             	27
+    skill_average:      	22.3
+    weight:             	306
+    username:           	Solar_Spirit_
+
+
+444295171434217473 (.sazzy):
+    successful:         	True
+    uuid:               	dc5d48ad98a64d81a898a30a812f91c1
+    cata:               	32
+    secrets:            	2941
+    combat:             	49
+    skill_average:      	36.2
+    weight:             	3794
+    username:           	Sazzy490
+    profile:            	Blueberry
+
+
